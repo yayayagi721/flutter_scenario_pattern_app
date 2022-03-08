@@ -1,0 +1,51 @@
+{
+    "title": "なすの味噌汁",
+    "contents": [
+        {
+            "kind": "cover",
+            "cover_image_path": "hoge"
+        },
+        {
+            "kind": "material",
+            "materials": [
+                {
+                    "name": "なす",
+                    "unit_symbol": "個",
+                    "amount": 1
+                },
+                {
+                    "name": "水",
+                    "unit_symbol": "ml",
+                    "amount": 300
+                },
+                {
+                    "name": "味噌",
+                    "unit_symbol": "g",
+                    "amount": 30
+                }
+            ]
+        },
+        {
+            "kind": "process",
+            "operation": "具材を切る"
+        },
+        {
+            "kind": "process",
+            "operation": "鍋に水をいれる"
+        },
+        {
+            "kind": "process",
+            "operation": "中火で5分、お湯をわかす",
+            "wait": {
+                "duration": {
+                    "minutes": 5
+                },
+                "onEnd": "火を止める"
+            }
+        },
+        {
+            "kind": "buck_cover",
+            "end_comment": "作っていただいてありがとうございました。"
+        }
+    ]
+}
