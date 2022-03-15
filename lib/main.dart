@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:scenario_pattern_app/model/recipe_book_scenario.dart';
+import 'package:flutter/services.dart' show rootBundle;
 
 void main() {
   runApp(const MyApp());
@@ -49,6 +51,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+
+  Future _loadScenario() async {
+    String jsonStr = await rootBundle.loadString('json/recipe1.json');
+    var _scenario = RecipeBookScenario.fromJson(jsonStr);
+    print(_scenario);
+  }
 
   void _incrementCounter() {
     setState(() {
@@ -106,7 +114,9 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () async {
+          await _loadScenario();
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
